@@ -1,0 +1,167 @@
+import React from 'react'
+import {
+  Home,
+  Inbox,
+  Calendar,
+  Search,
+  Settings,
+  ChevronDown,
+  User2,
+  Plus,
+  Table,
+} from "lucide-react"
+
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarRail,
+} from "@/components/ui/sidebar"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {Link} from 'react-router'
+
+import { TooltipProvider } from '@/components/ui/tooltip'
+
+
+// Navigation items
+const navItems = [
+  {
+    title: "Home",
+    url: "/dashboard",
+    icon: Home,
+  },
+  {
+    title: "Tables",
+    url: "/equipment",
+    icon: Table,
+  },
+  {
+    title: "Calendar",
+    url: "/calendar",
+    icon: Calendar,
+  },
+  {
+    title: "Search",
+    url: "/search",
+    icon: Search,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings,
+  },
+]
+
+
+
+
+const AppSideBar = () => {
+  return (
+        <TooltipProvider>
+          <Sidebar className=' mx-auto text-black text-md'>
+            <SidebarHeader>
+              <SidebarMenu>
+            <SidebarMenuItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <SidebarMenuButton
+                    size="lg"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  >
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                      A
+                    </div>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">Acme Inc</span>
+                      <span className="truncate text-xs">Enterprise</span>
+                    </div>
+                    <ChevronDown className="ml-auto" />
+                  </SidebarMenuButton>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg bg-white"
+                  align="start"
+                  side="bottom"
+                  sideOffset={4}
+
+                >
+                  <DropdownMenuItem>
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                      A
+                    </div>
+                    <div className="ml-2">Acme Inc</div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-muted">
+                      P
+                    </div>
+                    <div className="ml-2">Personal</div>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenuItem>
+          </SidebarMenu>
+            </SidebarHeader>
+            
+            <SidebarContent>
+              {/* Add sidebar content here */}
+              <SidebarGroup>
+            <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {navItems.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild tooltip={item.title}>
+                      <Link to={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <SidebarGroup>
+            <SidebarGroupContent>
+              
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+
+
+            </SidebarContent>
+            
+            <SidebarFooter>
+              {/* Add sidebar footer here */}
+                Footer
+            </SidebarFooter>
+          </Sidebar>
+        </TooltipProvider>
+    
+  )
+}
+
+export default AppSideBar
