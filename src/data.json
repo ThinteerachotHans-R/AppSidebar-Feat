@@ -1,0 +1,142 @@
+[
+  {
+    "ID": 1,
+    "Equipment Name": "Laptop Dell XPS 15",
+    "Date": "2026-01-15",
+    "Description": "High-performance laptop for software development and design work",
+    "Price": 1850
+  },
+  {
+    "ID": 2,
+    "Equipment Name": "HP LaserJet Printer",
+    "Date": "2026-01-18",
+    "Description": "Wireless monochrome office printer",
+    "Price": 320
+  },
+  {
+    "ID": 3,
+    "Equipment Name": "Cisco Router RV340",
+    "Date": "2026-01-20",
+    "Description": "Dual WAN VPN business router",
+    "Price": 450
+  },
+  {
+    "ID": 4,
+    "Equipment Name": "Samsung Monitor 27 Inch",
+    "Date": "2026-01-22",
+    "Description": "4K UHD monitor for office and multimedia use",
+    "Price": 390
+  },
+  {
+    "ID": 5,
+    "Equipment Name": "Logitech MX Master 3",
+    "Date": "2026-01-25",
+    "Description": "Advanced wireless productivity mouse",
+    "Price": 120
+  },
+  {
+    "ID": 6,
+    "Equipment Name": "Mechanical Keyboard Keychron K8",
+    "Date": "2026-01-27",
+    "Description": "Wireless RGB mechanical keyboard",
+    "Price": 110
+  },
+  {
+    "ID": 7,
+    "Equipment Name": "Canon EOS R10 Camera",
+    "Date": "2026-02-01",
+    "Description": "Mirrorless camera for photography and video recording",
+    "Price": 1250
+  },
+  {
+    "ID": 8,
+    "Equipment Name": "Projector Epson X500",
+    "Date": "2026-02-03",
+    "Description": "Full HD projector for conference rooms",
+    "Price": 780
+  },
+  {
+    "ID": 9,
+    "Equipment Name": "External SSD Samsung T7",
+    "Date": "2026-02-05",
+    "Description": "1TB portable solid-state drive",
+    "Price": 160
+  },
+  {
+    "ID": 10,
+    "Equipment Name": "Office Chair ErgoPro",
+    "Date": "2026-02-08",
+    "Description": "Ergonomic adjustable office chair",
+    "Price": 540
+  },
+  {
+    "ID": 11,
+    "Equipment Name": "Apple iPad Air",
+    "Date": "2026-02-10",
+    "Description": "Tablet device for note-taking and presentations",
+    "Price": 699
+  },
+  {
+    "ID": 12,
+    "Equipment Name": "Synology NAS DS220+",
+    "Date": "2026-02-12",
+    "Description": "Network attached storage for backups and file sharing",
+    "Price": 420
+  },
+  {
+    "ID": 13,
+    "Equipment Name": "Microphone Blue Yeti",
+    "Date": "2026-02-15",
+    "Description": "USB condenser microphone for streaming and meetings",
+    "Price": 150
+  },
+  {
+    "ID": 14,
+    "Equipment Name": "TP-Link Access Point",
+    "Date": "2026-02-17",
+    "Description": "Ceiling-mounted wireless access point",
+    "Price": 210
+  },
+  {
+    "ID": 15,
+    "Equipment Name": "Lenovo ThinkPad E14",
+    "Date": "2026-02-20",
+    "Description": "Business laptop with Intel Core i7 processor",
+    "Price": 1350
+  },
+  {
+    "ID": 16,
+    "Equipment Name": "Standing Desk FlexiSpot",
+    "Date": "2026-02-22",
+    "Description": "Height adjustable electric standing desk",
+    "Price": 610
+  },
+  {
+    "ID": 17,
+    "Equipment Name": "Webcam Logitech C920",
+    "Date": "2026-02-25",
+    "Description": "HD webcam for video conferencing",
+    "Price": 95
+  },
+  {
+    "ID": 18,
+    "Equipment Name": "APC UPS 1500VA",
+    "Date": "2026-02-27",
+    "Description": "Uninterruptible power supply for office systems",
+    "Price": 280
+  },
+  {
+    "ID": 19,
+    "Equipment Name": "Asus Gaming PC",
+    "Date": "2026-03-01",
+    "Description": "Desktop computer with RTX graphics card",
+    "Price": 2200
+  },
+  {
+    "ID": 20,
+    "Equipment Name": "Sony WH-1000XM5",
+    "Date": "2026-03-03",
+    "Description": "Noise-canceling wireless headphones",
+    "Price": 399
+  }
+]

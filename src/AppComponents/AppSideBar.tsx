@@ -16,30 +16,21 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-  SidebarRail,
 } from "@/components/ui/sidebar"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {Link} from 'react-router'
+import {Link,useLocation} from 'react-router'
 
 import { TooltipProvider } from '@/components/ui/tooltip'
 
@@ -77,9 +68,10 @@ const navItems = [
 
 
 const AppSideBar = () => {
+    const location = useLocation();
   return (
         <TooltipProvider>
-          <Sidebar className=' mx-auto text-black text-md'>
+          <Sidebar className=' mx-auto  text-md bg-indigo-600' collapsible = 'icon'>
             <SidebarHeader>
               <SidebarMenu>
             <SidebarMenuItem>
@@ -89,10 +81,10 @@ const AppSideBar = () => {
                     size="lg"
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground text-white">
                       A
                     </div>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
+                    <div className="grid flex-1 text-left text-sm leading-tight text-white">
                       <span className="truncate font-semibold">Acme Inc</span>
                       <span className="truncate text-xs">Enterprise</span>
                     </div>
@@ -130,16 +122,34 @@ const AppSideBar = () => {
             <SidebarGroupLabel>Navigation</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {navItems.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild tooltip={item.title}>
-                      <Link to={item.url}>
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {navItems.map((item) => {
+                  // [Engineering Logic]: ตรวจสอบสถานะ Active
+                  // หน้า Home (Dashboard) ต้องตรงกันเป๊ะๆ แต่หน้าอื่น (เช่น /equipment) ให้เช็คแบบ .startsWith 
+                  // เพื่อให้เวลาเข้าหน้าย่อยอย่าง /equipment/detail แล้วปุ่มเมนูหลักยังคงไฮไลต์สีขาวอยู่
+                  const isActive = item.url === "/dashboard" 
+                    ? location.pathname === "/dashboard" 
+                    : location.pathname.startsWith(item.url);
+
+                  return (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton 
+                        asChild 
+                        tooltip={item.title}
+                        // ใส่ className แบบมีเงื่อนไข (Conditional Class)
+                        className={`w-full transition-colors font-medium ${
+                          isActive 
+                            ? "bg-white text-blue-600 shadow-sm font-bold hover:bg-white hover:text-blue-600" 
+                            : "text-white hover:bg-indigo-700/60 hover:text-white"
+                        }`}
+                      >
+                        <Link to={item.url}>
+                          <item.icon />
+                          <span>{item.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
