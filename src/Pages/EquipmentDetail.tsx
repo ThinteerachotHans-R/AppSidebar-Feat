@@ -7,9 +7,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import data from '../data.json'
+import { useParams } from 'react-router'
 
 const EquipmentDetail = () => {
+  
+  const { id } = useParams()  
+  const equipment = data.find(item => item.ID === parseInt(id!))
+
+  if (!equipment) {
+    return <div>Equipment not found</div>
+  }
+  
   return (
     <div className='w-full mx-auto gap-2 flex'>
       <Card className='w-2/5'>
@@ -25,12 +34,22 @@ const EquipmentDetail = () => {
           </CardFooter>
       </Card>
       <div className='flex flex-col gap-4 px-4'>
-        <div className='Name'>Equipment 1</div>
-        <div className='Category'>Electronics</div>
-        <div className='Price'>5555 Baht</div>
-        <div className = 'Status'>Active</div>
-        <div className='description'>This is a sample equipment description.</div>
-        <div className='maintenance-history'>Maintenance history will be displayed here.</div>
+        <div className='Name flex  gap-2'>
+          <div className='font-bold'>Equipment Name: </div>
+          <div>{equipment.Equipmentname}</div>
+        </div>
+        <div className='Date flex  items-center gap-2'>
+          <div className='font-bold'>Added Date: </div>
+          <div>{equipment.Date}</div>
+        </div>
+        <div className='Price flex items-center gap-2'>
+          <div className='font-bold'>Price: </div>
+          <div>{equipment.Price}</div>
+        </div>
+        <div className='description flex items-center gap-2'>
+          <div className='font-bold'>Description: </div>
+          <div>{equipment.Description}</div>
+        </div>
       </div>
 
     </div>    

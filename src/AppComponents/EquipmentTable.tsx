@@ -18,7 +18,7 @@ const EquipmentTable = () => {
       <TableCaption>A list of your equipments.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">ID</TableHead>
+          <TableHead className="w-25">ID</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Category</TableHead>
           <TableHead className="text-right">Price</TableHead>

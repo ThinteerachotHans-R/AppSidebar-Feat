@@ -2,7 +2,7 @@ import React from 'react'
 import { SidebarProvider,SidebarTrigger,SidebarInset } from '@/components/ui/sidebar'
 import AppSideBar from '@/AppComponents/AppSideBar'
 import { Outlet } from 'react-router'
-
+import AppBreadCrumb from '@/AppComponents/AppBreadCrumb'
 
 
 
@@ -13,6 +13,8 @@ const DashboardLayout = () => {
         <SidebarInset className= 'flex-1 flex flex-col w-full overflow-x-hidden'>
           <div className="p-4 border-b flex items-center gap-2">
             <SidebarTrigger />
+            <span className="text-zinc-300">|</span>
+            <AppBreadCrumb/>
           </div>
           <div className='w-full flex-1 p-6 bg-zinc-50/50'>
             <Outlet />

@@ -5,10 +5,10 @@ import NotFoundPage from './Pages/NotFoundPage.tsx'
 import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import path from 'path/win32'
 import EquipmentTable from './Pages/EquipmentTable.tsx'
 import EquipmentDetail from './Pages/EquipmentDetail.tsx'
 import DashboardHome from './Pages/DashboardHome.tsx'
+import SearchPage from './Pages/SearchPage.tsx'
 
 const router = createBrowserRouter([
 
@@ -16,7 +16,8 @@ const router = createBrowserRouter([
   {element: <DashboardLayout />, children: [
     {path: '/dashboard', element: <DashboardHome />},
     {path: '/equipment', element: <EquipmentTable />},
-    {path: '/equipment/detail', element: <EquipmentDetail />},
+    {path: '/equipment/:id', element: <EquipmentDetail />},
+    {path: '/search', element: <SearchPage />},
   ]},
   {path: '*', element: <NotFoundPage />}
 

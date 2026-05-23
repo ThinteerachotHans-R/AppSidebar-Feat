@@ -1,13 +1,9 @@
 import React from 'react'
 import {
   Home,
-  Inbox,
-  Calendar,
   Search,
-  Settings,
   ChevronDown,
   User2,
-  Plus,
   Table,
 } from "lucide-react"
 
@@ -34,7 +30,6 @@ import {Link,useLocation} from 'react-router'
 
 import { TooltipProvider } from '@/components/ui/tooltip'
 
-
 // Navigation items
 const navItems = [
   {
@@ -48,20 +43,10 @@ const navItems = [
     icon: Table,
   },
   {
-    title: "Calendar",
-    url: "/calendar",
-    icon: Calendar,
-  },
-  {
     title: "Search",
     url: "/search",
     icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
-  },
+  }
 ]
 
 
@@ -88,7 +73,7 @@ const AppSideBar = () => {
                       <span className="truncate font-semibold">Acme Inc</span>
                       <span className="truncate text-xs">Enterprise</span>
                     </div>
-                    <ChevronDown className="ml-auto" />
+                    <ChevronDown className="ml-auto text-white" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -119,7 +104,7 @@ const AppSideBar = () => {
             <SidebarContent>
               {/* Add sidebar content here */}
               <SidebarGroup>
-            <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+            <SidebarGroupLabel className="text-white">Navigation</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {navItems.map((item) => {
