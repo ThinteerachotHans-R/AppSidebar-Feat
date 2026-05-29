@@ -1,162 +1,202 @@
 [
   {
     "ID": 1,
+    "Document": "DOC-2026-001",
     "Equipmentname": "Dell Latitude 5420",
-    "Date": "2026-03-01",
-    "Description": "Business laptop with 16GB RAM and Intel Core i7 processor.",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-01",
+    "Description": "Business laptop with Intel Core i7 and 16GB RAM.",
     "Price": 1250,
-    "Usage Count": 48
+    "Status": "อนุมัติ"
   },
   {
     "ID": 2,
-    "Equipmentname": "HP LaserJet Pro M404",
-    "Date": "2026-03-02",
-    "Description": "High-speed monochrome office printer.",
+    "Document": "DOC-2026-002",
+    "Equipmentname": "HP LaserJet Pro Printer",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-02",
+    "Description": "High-speed office printer for document printing.",
     "Price": 340,
-    "Usage Count": 35
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 3,
-    "Equipmentname": "Cisco 24-Port Switch",
-    "Date": "2026-03-03",
-    "Description": "Managed gigabit switch for enterprise networking.",
+    "Document": "DOC-2026-003",
+    "Equipmentname": "Cisco 24-Port Network Switch",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-03",
+    "Description": "Managed network switch for enterprise systems.",
     "Price": 560,
-    "Usage Count": 27
+    "Status": "อนุมัติ"
   },
   {
     "ID": 4,
+    "Document": "DOC-2026-004",
     "Equipmentname": "Samsung 27-inch Monitor",
-    "Date": "2026-03-04",
-    "Description": "Full HD IPS monitor for office and multimedia use.",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-04",
+    "Description": "Full HD IPS monitor for office use.",
     "Price": 245,
-    "Usage Count": 61
+    "Status": "อนุมัติ"
   },
   {
     "ID": 5,
-    "Equipmentname": "Logitech MX Master 3",
-    "Date": "2026-03-05",
-    "Description": "Advanced wireless ergonomic mouse.",
-    "Price": 99,
-    "Usage Count": 82
+    "Document": "DOC-2026-005",
+    "Equipmentname": "Office Wooden Desk",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-05",
+    "Description": "Large wooden desk for workstation setup.",
+    "Price": 420,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 6,
-    "Equipmentname": "Apple iPad Air",
-    "Date": "2026-03-06",
-    "Description": "Portable tablet for presentations and remote work.",
-    "Price": 799,
-    "Usage Count": 43
+    "Document": "DOC-2026-006",
+    "Equipmentname": "Ergonomic Office Chair",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-06",
+    "Description": "Adjustable ergonomic chair with lumbar support.",
+    "Price": 310,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 7,
-    "Equipmentname": "Canon EOS 90D",
-    "Date": "2026-03-07",
-    "Description": "Professional DSLR camera for media production.",
-    "Price": 1450,
-    "Usage Count": 19
+    "Document": "DOC-2026-007",
+    "Equipmentname": "Apple iPad Air",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-07",
+    "Description": "Portable tablet for presentations and remote work.",
+    "Price": 799,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 8,
-    "Equipmentname": "Epson EB-X06 Projector",
-    "Date": "2026-03-08",
-    "Description": "Conference room projector with HDMI support.",
-    "Price": 670,
-    "Usage Count": 24
+    "Document": "DOC-2026-008",
+    "Equipmentname": "Conference Table",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-08",
+    "Description": "Large meeting table for conference rooms.",
+    "Price": 950,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 9,
-    "Equipmentname": "Lenovo ThinkPad Dock",
-    "Date": "2026-03-09",
-    "Description": "USB-C docking station with multiple display outputs.",
-    "Price": 215,
-    "Usage Count": 51
+    "Document": "DOC-2026-009",
+    "Equipmentname": "Sony WH-1000XM5 Headphones",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-09",
+    "Description": "Wireless noise-cancelling headphones.",
+    "Price": 399,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 10,
-    "Equipmentname": "Sony WH-1000XM5",
-    "Date": "2026-03-10",
-    "Description": "Wireless noise-cancelling headphones.",
-    "Price": 399,
-    "Usage Count": 66
+    "Document": "DOC-2026-010",
+    "Equipmentname": "Metal Filing Cabinet",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-10",
+    "Description": "Secure cabinet for storing important documents.",
+    "Price": 275,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 11,
-    "Equipmentname": "External SSD 2TB",
-    "Date": "2026-03-11",
-    "Description": "Portable high-speed SSD storage device.",
-    "Price": 210,
-    "Usage Count": 58
+    "Document": "DOC-2026-011",
+    "Equipmentname": "Mechanical Keyboard RGB",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-11",
+    "Description": "Mechanical keyboard with RGB lighting.",
+    "Price": 120,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 12,
-    "Equipmentname": "Mechanical RGB Keyboard",
-    "Date": "2026-03-12",
-    "Description": "Backlit mechanical keyboard with blue switches.",
-    "Price": 120,
-    "Usage Count": 74
+    "Document": "DOC-2026-012",
+    "Equipmentname": "Bookshelf Cabinet",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-12",
+    "Description": "Wooden bookshelf cabinet for office storage.",
+    "Price": 390,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 13,
-    "Equipmentname": "APC UPS 1500VA",
-    "Date": "2026-03-13",
-    "Description": "Battery backup system for critical devices.",
-    "Price": 430,
-    "Usage Count": 16
+    "Document": "DOC-2026-013",
+    "Equipmentname": "Asus WiFi 6 Router",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-13",
+    "Description": "Dual-band wireless router with WiFi 6 support.",
+    "Price": 185,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 14,
-    "Equipmentname": "Asus WiFi 6 Router",
-    "Date": "2026-03-14",
-    "Description": "Dual-band wireless router with WiFi 6 support.",
-    "Price": 185,
-    "Usage Count": 39
+    "Document": "DOC-2026-014",
+    "Equipmentname": "Reception Sofa Set",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-14",
+    "Description": "Comfortable sofa set for reception area.",
+    "Price": 1150,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 15,
-    "Equipmentname": "Microsoft Surface Pro 9",
-    "Date": "2026-03-15",
-    "Description": "2-in-1 laptop and tablet device.",
-    "Price": 1399,
-    "Usage Count": 29
+    "Document": "DOC-2026-015",
+    "Equipmentname": "Logitech Brio 4K Webcam",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-15",
+    "Description": "Ultra HD webcam for online meetings.",
+    "Price": 220,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 16,
-    "Equipmentname": "Logitech Brio 4K Webcam",
-    "Date": "2026-03-16",
-    "Description": "Ultra HD webcam for professional meetings.",
-    "Price": 220,
-    "Usage Count": 47
+    "Document": "DOC-2026-016",
+    "Equipmentname": "Office Storage Locker",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-16",
+    "Description": "Multi-compartment locker for employee storage.",
+    "Price": 670,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 17,
-    "Equipmentname": "Brother Label Printer",
-    "Date": "2026-03-17",
-    "Description": "Compact printer for labels and tags.",
-    "Price": 95,
-    "Usage Count": 31
+    "Document": "DOC-2026-017",
+    "Equipmentname": "External SSD 2TB",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-17",
+    "Description": "Portable high-speed SSD storage device.",
+    "Price": 210,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 18,
-    "Equipmentname": "Portable Bluetooth Speaker",
-    "Date": "2026-03-18",
-    "Description": "Rechargeable speaker with enhanced bass.",
-    "Price": 79,
-    "Usage Count": 54
+    "Document": "DOC-2026-018",
+    "Equipmentname": "Meeting Room Whiteboard",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-18",
+    "Description": "Magnetic whiteboard for presentations and planning.",
+    "Price": 180,
+    "Status": "รอดำเนินการ"
   },
   {
     "ID": 19,
-    "Equipmentname": "42U Server Rack Cabinet",
-    "Date": "2026-03-19",
-    "Description": "Heavy-duty server rack for IT infrastructure.",
-    "Price": 980,
-    "Usage Count": 11
+    "Document": "DOC-2026-019",
+    "Equipmentname": "Fingerprint Attendance Scanner",
+    "Category": "อุปกรณ์IT",
+    "Date": "2026-04-19",
+    "Description": "Biometric attendance tracking system.",
+    "Price": 260,
+    "Status": "อนุมัติ"
   },
   {
     "ID": 20,
-    "Equipmentname": "Fingerprint Attendance Scanner",
-    "Date": "2026-03-20",
-    "Description": "Biometric scanner for employee attendance tracking.",
-    "Price": 260,
-    "Usage Count": 44
+    "Document": "DOC-2026-020",
+    "Equipmentname": "Office Coffee Table",
+    "Category": "เฟอร์นิเจอร์",
+    "Date": "2026-04-20",
+    "Description": "Modern coffee table for lounge area.",
+    "Price": 210,
+    "Status": "รอดำเนินการ"
   }
 ]
