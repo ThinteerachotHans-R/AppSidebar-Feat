@@ -14,7 +14,7 @@ import {
 
 import data from '../data.json'
 import { Input } from '@/components/ui/input'
-import { Filter, Search, SlidersHorizontal, X, SquarePen, Eye,EyeClosed,Trash2 } from 'lucide-react'
+import { Filter, Search, SlidersHorizontal, X, SquarePen, Eye,Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CategoryBadge, StatusBadge } from '../AppComponents/EquipmentBadges'
 import { Dialog,DialogContent,DialogHeader,DialogDescription,DialogTitle,DialogFooter } from '@/components/ui/dialog'
