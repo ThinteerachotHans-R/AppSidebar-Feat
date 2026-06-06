@@ -1,10 +1,10 @@
 import React from 'react'
 import {
   Home,
-  Search,
   ChevronDown,
-  User2,
   Table,
+  List,
+  LayoutDashboard
 } from "lucide-react"
 
 import {
@@ -33,19 +33,14 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 // Navigation items
 const navItems = [
   {
-    title: "Home",
+    title: "หน้าหลัก",
     url: "/dashboard",
-    icon: Home,
+    icon: LayoutDashboard,
   },
   {
-    title: "Tables",
+    title: "รายการครุภัณฑ์",
     url: "/equipment",
-    icon: Table,
-  },
-  {
-    title: "Search",
-    url: "/search",
-    icon: Search,
+    icon: List,
   }
 ]
 
@@ -56,7 +51,7 @@ const AppSideBar = () => {
     const location = useLocation();
   return (
         <TooltipProvider>
-          <Sidebar className=' mx-auto  text-md bg-indigo-600' collapsible = 'icon'>
+          <Sidebar className=' mx-auto  text-md bg-white' collapsible = 'icon'>
             <SidebarHeader>
               <SidebarMenu>
             <SidebarMenuItem>
@@ -66,14 +61,14 @@ const AppSideBar = () => {
                     size="lg"
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground text-white">
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground text-indigo-600">
                       A
                     </div>
-                    <div className="grid flex-1 text-left text-sm leading-tight text-white">
+                    <div className="grid flex-1 text-left text-sm leading-tight text-indigo-600">
                       <span className="truncate font-semibold">Acme Inc</span>
                       <span className="truncate text-xs">Enterprise</span>
                     </div>
-                    <ChevronDown className="ml-auto text-white" />
+                    <ChevronDown className="ml-auto text-indigo-600" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -104,7 +99,7 @@ const AppSideBar = () => {
             <SidebarContent>
               {/* Add sidebar content here */}
               <SidebarGroup>
-            <SidebarGroupLabel className="text-white">Navigation</SidebarGroupLabel>
+            <SidebarGroupLabel className="text-indigo-600">Navigation</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {navItems.map((item) => {
@@ -123,8 +118,8 @@ const AppSideBar = () => {
                         // ใส่ className แบบมีเงื่อนไข (Conditional Class)
                         className={`w-full transition-colors font-medium ${
                           isActive 
-                            ? "bg-white text-blue-600 shadow-sm font-bold hover:bg-white hover:text-blue-600" 
-                            : "text-white hover:bg-indigo-700/60 hover:text-white"
+                            ? "bg-white text-indigo-600 shadow-sm font-bold hover:bg-white hover:text-blue-600" 
+                            : "text-indigo-600 hover:bg-indigo-700/60 hover:text-white"
                         }`}
                       >
                         <Link to={item.url}>
@@ -151,7 +146,7 @@ const AppSideBar = () => {
             
             <SidebarFooter>
               {/* Add sidebar footer here */}
-                Footer
+                F
             </SidebarFooter>
           </Sidebar>
         </TooltipProvider>

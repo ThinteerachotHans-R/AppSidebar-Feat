@@ -1,7 +1,7 @@
 [
   {
     "ID": 1,
-    "Document": "DOC-2026-001",
+    "Document": 3,
     "Equipmentname": "Dell Latitude 5420",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-01",
@@ -11,7 +11,7 @@
   },
   {
     "ID": 2,
-    "Document": "DOC-2026-002",
+    "Document": 5,
     "Equipmentname": "HP LaserJet Pro Printer",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-02",
@@ -21,7 +21,7 @@
   },
   {
     "ID": 3,
-    "Document": "DOC-2026-003",
+    "Document": 2,
     "Equipmentname": "Cisco 24-Port Network Switch",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-03",
@@ -31,7 +31,7 @@
   },
   {
     "ID": 4,
-    "Document": "DOC-2026-004",
+    "Document": 4,
     "Equipmentname": "Samsung 27-inch Monitor",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-04",
@@ -41,7 +41,7 @@
   },
   {
     "ID": 5,
-    "Document": "DOC-2026-005",
+    "Document": 6,
     "Equipmentname": "Office Wooden Desk",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-05",
@@ -51,7 +51,7 @@
   },
   {
     "ID": 6,
-    "Document": "DOC-2026-006",
+    "Document": 3,
     "Equipmentname": "Ergonomic Office Chair",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-06",
@@ -61,7 +61,7 @@
   },
   {
     "ID": 7,
-    "Document": "DOC-2026-007",
+    "Document": 8,
     "Equipmentname": "Apple iPad Air",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-07",
@@ -71,7 +71,7 @@
   },
   {
     "ID": 8,
-    "Document": "DOC-2026-008",
+    "Document": 2,
     "Equipmentname": "Conference Table",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-08",
@@ -81,7 +81,7 @@
   },
   {
     "ID": 9,
-    "Document": "DOC-2026-009",
+    "Document": 7,
     "Equipmentname": "Sony WH-1000XM5 Headphones",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-09",
@@ -91,17 +91,17 @@
   },
   {
     "ID": 10,
-    "Document": "DOC-2026-010",
+    "Document": 4,
     "Equipmentname": "Metal Filing Cabinet",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-10",
-    "Description": "Secure cabinet for storing important documents.",
+    "Description": "Secure cabinet for storing documents.",
     "Price": 275,
     "Status": "อนุมัติ"
   },
   {
     "ID": 11,
-    "Document": "DOC-2026-011",
+    "Document": 5,
     "Equipmentname": "Mechanical Keyboard RGB",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-11",
@@ -111,17 +111,17 @@
   },
   {
     "ID": 12,
-    "Document": "DOC-2026-012",
+    "Document": 3,
     "Equipmentname": "Bookshelf Cabinet",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-12",
-    "Description": "Wooden bookshelf cabinet for office storage.",
+    "Description": "Wooden bookshelf for office storage.",
     "Price": 390,
     "Status": "รอดำเนินการ"
   },
   {
     "ID": 13,
-    "Document": "DOC-2026-013",
+    "Document": 6,
     "Equipmentname": "Asus WiFi 6 Router",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-13",
@@ -131,7 +131,7 @@
   },
   {
     "ID": 14,
-    "Document": "DOC-2026-014",
+    "Document": 10,
     "Equipmentname": "Reception Sofa Set",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-14",
@@ -141,7 +141,7 @@
   },
   {
     "ID": 15,
-    "Document": "DOC-2026-015",
+    "Document": 2,
     "Equipmentname": "Logitech Brio 4K Webcam",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-15",
@@ -151,37 +151,37 @@
   },
   {
     "ID": 16,
-    "Document": "DOC-2026-016",
+    "Document": 4,
     "Equipmentname": "Office Storage Locker",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-16",
-    "Description": "Multi-compartment locker for employee storage.",
+    "Description": "Multi-compartment locker for employees.",
     "Price": 670,
     "Status": "รอดำเนินการ"
   },
   {
     "ID": 17,
-    "Document": "DOC-2026-017",
+    "Document": 3,
     "Equipmentname": "External SSD 2TB",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-17",
-    "Description": "Portable high-speed SSD storage device.",
+    "Description": "High-speed portable SSD storage device.",
     "Price": 210,
     "Status": "อนุมัติ"
   },
   {
     "ID": 18,
-    "Document": "DOC-2026-018",
+    "Document": 5,
     "Equipmentname": "Meeting Room Whiteboard",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-18",
-    "Description": "Magnetic whiteboard for presentations and planning.",
+    "Description": "Magnetic whiteboard for meetings and planning.",
     "Price": 180,
     "Status": "รอดำเนินการ"
   },
   {
     "ID": 19,
-    "Document": "DOC-2026-019",
+    "Document": 6,
     "Equipmentname": "Fingerprint Attendance Scanner",
     "Category": "อุปกรณ์IT",
     "Date": "2026-04-19",
@@ -191,7 +191,7 @@
   },
   {
     "ID": 20,
-    "Document": "DOC-2026-020",
+    "Document": 3,
     "Equipmentname": "Office Coffee Table",
     "Category": "เฟอร์นิเจอร์",
     "Date": "2026-04-20",
