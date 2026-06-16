@@ -1,6 +1,6 @@
 [
   {
-    "ID": 1,
+    "ID": "EQ001",
     "Document": 3,
     "Equipmentname": "Dell Latitude 5420",
     "Category": "อุปกรณ์IT",
@@ -10,7 +10,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 2,
+    "ID": "EQ002",
     "Document": 5,
     "Equipmentname": "HP LaserJet Pro Printer",
     "Category": "อุปกรณ์IT",
@@ -20,7 +20,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 3,
+    "ID": "EQ003",
     "Document": 2,
     "Equipmentname": "Cisco 24-Port Network Switch",
     "Category": "อุปกรณ์IT",
@@ -30,7 +30,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 4,
+    "ID": "EQ004",
     "Document": 4,
     "Equipmentname": "Samsung 27-inch Monitor",
     "Category": "อุปกรณ์IT",
@@ -40,7 +40,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 5,
+    "ID": "EQ005",
     "Document": 6,
     "Equipmentname": "Office Wooden Desk",
     "Category": "เฟอร์นิเจอร์",
@@ -50,7 +50,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 6,
+    "ID": "EQ006",
     "Document": 3,
     "Equipmentname": "Ergonomic Office Chair",
     "Category": "เฟอร์นิเจอร์",
@@ -60,7 +60,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 7,
+    "ID": "EQ007",
     "Document": 8,
     "Equipmentname": "Apple iPad Air",
     "Category": "อุปกรณ์IT",
@@ -70,7 +70,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 8,
+    "ID": "EQ008",
     "Document": 2,
     "Equipmentname": "Conference Table",
     "Category": "เฟอร์นิเจอร์",
@@ -80,7 +80,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 9,
+    "ID": "EQ009",
     "Document": 7,
     "Equipmentname": "Sony WH-1000XM5 Headphones",
     "Category": "อุปกรณ์IT",
@@ -90,7 +90,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 10,
+    "ID": "EQ010",
     "Document": 4,
     "Equipmentname": "Metal Filing Cabinet",
     "Category": "เฟอร์นิเจอร์",
@@ -100,7 +100,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 11,
+    "ID": "EQ011",
     "Document": 5,
     "Equipmentname": "Mechanical Keyboard RGB",
     "Category": "อุปกรณ์IT",
@@ -110,7 +110,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 12,
+    "ID": "EQ012",
     "Document": 3,
     "Equipmentname": "Bookshelf Cabinet",
     "Category": "เฟอร์นิเจอร์",
@@ -120,7 +120,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 13,
+    "ID": "EQ013",
     "Document": 6,
     "Equipmentname": "Asus WiFi 6 Router",
     "Category": "อุปกรณ์IT",
@@ -130,7 +130,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 14,
+    "ID": "EQ014",
     "Document": 10,
     "Equipmentname": "Reception Sofa Set",
     "Category": "เฟอร์นิเจอร์",
@@ -140,7 +140,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 15,
+    "ID": "EQ015",
     "Document": 2,
     "Equipmentname": "Logitech Brio 4K Webcam",
     "Category": "อุปกรณ์IT",
@@ -150,7 +150,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 16,
+    "ID": "EQ016",
     "Document": 4,
     "Equipmentname": "Office Storage Locker",
     "Category": "เฟอร์นิเจอร์",
@@ -160,7 +160,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 17,
+    "ID": "EQ017",
     "Document": 3,
     "Equipmentname": "External SSD 2TB",
     "Category": "อุปกรณ์IT",
@@ -170,7 +170,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 18,
+    "ID": "EQ018",
     "Document": 5,
     "Equipmentname": "Meeting Room Whiteboard",
     "Category": "เฟอร์นิเจอร์",
@@ -180,7 +180,7 @@
     "Status": "รอดำเนินการ"
   },
   {
-    "ID": 19,
+    "ID": "EQ019",
     "Document": 6,
     "Equipmentname": "Fingerprint Attendance Scanner",
     "Category": "อุปกรณ์IT",
@@ -190,7 +190,7 @@
     "Status": "อนุมัติ"
   },
   {
-    "ID": 20,
+    "ID": "EQ020",
     "Document": 3,
     "Equipmentname": "Office Coffee Table",
     "Category": "เฟอร์นิเจอร์",

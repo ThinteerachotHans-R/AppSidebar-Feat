@@ -32,3 +32,18 @@ export const CategoryBadge: React.FC<CategoryBadgeProps> = ({ category }) => {
     }
 
 }
+
+
+interface RoleBadgeProps {
+    role: string
+}
+
+export const RoleBadge: React.FC<RoleBadgeProps> = ({ role }) => {
+    
+    switch(role){
+        case 'ผู้ดูแลระบบ': 
+            return (<Badge className = "bg-blue-100 text-blue-800">admin</Badge>) 
+        default:
+            return (<Badge className = "bg-gray-100 text-gray-800">user</Badge>)
+    }
+}

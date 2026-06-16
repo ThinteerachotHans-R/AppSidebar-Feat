@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  Home,
-  ChevronDown,
-  Table,
   List,
-  LayoutDashboard
+  LayoutDashboard,
+  Package,
+  User,          
+  MoreVertical
 } from "lucide-react"
 
 import {
@@ -13,22 +13,19 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar
 } from "@/components/ui/sidebar"
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {Link,useLocation} from 'react-router'
 
 import { TooltipProvider } from '@/components/ui/tooltip'
+
+import{RoleBadge} from './EquipmentBadges'
+import { Button } from '@/components/ui/button'
 
 // Navigation items
 const navItems = [
@@ -49,104 +46,81 @@ const navItems = [
 
 const AppSideBar = () => {
     const location = useLocation();
+    const {state} = useSidebar();
   return (
         <TooltipProvider>
-          <Sidebar className=' mx-auto  text-md bg-white' collapsible = 'icon'>
-            <SidebarHeader>
-              <SidebarMenu>
-            <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton
-                    size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                  >
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground text-indigo-600">
-                      A
-                    </div>
-                    <div className="grid flex-1 text-left text-sm leading-tight text-indigo-600">
-                      <span className="truncate font-semibold">Acme Inc</span>
-                      <span className="truncate text-xs">Enterprise</span>
-                    </div>
-                    <ChevronDown className="ml-auto text-indigo-600" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg bg-white"
-                  align="start"
-                  side="bottom"
-                  sideOffset={4}
-
-                >
-                  <DropdownMenuItem>
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                      A
-                    </div>
-                    <div className="ml-2">Acme Inc</div>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-muted">
-                      P
-                    </div>
-                    <div className="ml-2">Personal</div>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
-          </SidebarMenu>
+          <Sidebar className=' mx-auto  text-md bg-white ' collapsible = 'icon'>
+            <SidebarHeader className="border-b border-gray-200">
+              <div className = "flex gap-3 items-center">
+                <div className ="p-2">
+                  <Package className='text-blue-600 size-6'/>
+                </div>
+                {state !== 'collapsed' && (
+                  <div className = "flex flex-col py-3">
+                    <p className = "text-md font-normal text-black">ระบบการจัดการเอกสารการจัดซื้อ/จัดจ้าง</p>
+                    <p className = "text-sm text-gray-500">Procurement Document</p>
+                  </div>
+                  )}
+              </div>
+            
             </SidebarHeader>
             
             <SidebarContent>
               {/* Add sidebar content here */}
-              <SidebarGroup>
-            <SidebarGroupLabel className="text-indigo-600">Navigation</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {navItems.map((item) => {
-                  // [Engineering Logic]: ตรวจสอบสถานะ Active
-                  // หน้า Home (Dashboard) ต้องตรงกันเป๊ะๆ แต่หน้าอื่น (เช่น /equipment) ให้เช็คแบบ .startsWith 
-                  // เพื่อให้เวลาเข้าหน้าย่อยอย่าง /equipment/detail แล้วปุ่มเมนูหลักยังคงไฮไลต์สีขาวอยู่
-                  const isActive = item.url === "/dashboard" 
-                    ? location.pathname === "/dashboard" 
-                    : location.pathname.startsWith(item.url);
+              <SidebarGroup className = "p-4">
+              <SidebarGroupContent>
+                <SidebarMenu className = "gap-1 ">
+                  {navItems.map((item) => {
+                    // [Engineering Logic]: ตรวจสอบสถานะ Active
+                    // หน้า Home (Dashboard) ต้องตรงกันเป๊ะๆ แต่หน้าอื่น (เช่น /equipment) ให้เช็คแบบ .startsWith 
+                    // เพื่อให้เวลาเข้าหน้าย่อยอย่าง /equipment/detail แล้วปุ่มเมนูหลักยังคงไฮไลต์สีขาวอยู่
+                    const isActive = item.url === "/dashboard" 
+                      ? location.pathname === "/dashboard" 
+                      : location.pathname.startsWith(item.url);
 
-                  return (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton 
-                        asChild 
-                        tooltip={item.title}
-                        // ใส่ className แบบมีเงื่อนไข (Conditional Class)
-                        className={`w-full transition-colors font-medium ${
-                          isActive 
-                            ? "bg-white text-indigo-600 shadow-sm font-bold hover:bg-white hover:text-blue-600" 
-                            : "text-indigo-600 hover:bg-indigo-700/60 hover:text-white"
-                        }`}
-                      >
-                        <Link to={item.url}>
-                          <item.icon />
-                          <span>{item.title}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-
-          <SidebarGroup>
-            <SidebarGroupContent>
-              
-            </SidebarGroupContent>
-          </SidebarGroup>
-
-
-
+                    return (
+                      <SidebarMenuItem key={item.title} className = "">
+                        <SidebarMenuButton 
+                          asChild 
+                          tooltip={item.title}
+                          // ใส่ className แบบมีเงื่อนไข (Conditional Class)
+                          className={`w-full transition-colors font-medium ${
+                            isActive 
+                              ? "bg-blue-50 text-blue-600 shadow-sm font-bold hover:bg-blue-600 hover:text-white" 
+                              : "text-gray-700 hover:bg-blue-600 hover:text-white"
+                          }`}
+                        >
+                          <Link to={item.url}>
+                            <item.icon />
+                            <span className="truncate p-0.5">{item.title}</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
             </SidebarContent>
             
-            <SidebarFooter>
+            <SidebarFooter className="border-t border-gray-200">
               {/* Add sidebar footer here */}
-                F
+                <div className='flex items-center gap-3 text-sm text-gray-500'>
+                  
+                  <div className = "ml-8 flex flex-col text-right">
+                    <p>ผู้ดูแลระบบ</p>
+                    <p className="text-xs text-gray-500">แผนกจัดซื้อ</p>
+                  </div>
+                 
+                  {state !== 'collapsed' && (
+                  <div className = "flex gap-2 items-center">
+                    <RoleBadge role = "ผู้ดูแลระบบ"/>
+                    <Button  className="text-gray-500 hover:text-gray-700 p-2">
+                      <MoreVertical className="size-5" />
+                    </Button>
+                  </div>
+                   )}
+                </div>
             </SidebarFooter>
           </Sidebar>
         </TooltipProvider>

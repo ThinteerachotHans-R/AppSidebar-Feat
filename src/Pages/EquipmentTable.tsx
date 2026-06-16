@@ -1,23 +1,27 @@
 import React, { useState } from 'react'
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table'
-import { Link } from 'react-router'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '../components/ui/table'
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 import data from '../data.json'
 import { Input } from '@/components/ui/input'
-import { Filter, Search, SlidersHorizontal, X, SquarePen, Eye,Trash2 } from 'lucide-react'
+import { Filter, Search, SlidersHorizontal, X, SquarePen, Eye,Trash2,AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { CategoryBadge, StatusBadge } from '../AppComponents/EquipmentBadges'
+import { CategoryBadge, StatusBadge, } from '../AppComponents/EquipmentBadges'
 import { Dialog,DialogContent,DialogHeader,DialogDescription,DialogTitle,DialogFooter } from '@/components/ui/dialog'
+
+
+import{Select,SelectContent,SelectGroup,SelectItem,SelectLabel,SelectTrigger,SelectValue} from '@/components/ui/select'
+
+
+
 
 // const items = [
 //   {Equipment: 'Equipment 1', Status: 'Active', LastMaintenance: '2024-01-15'},
@@ -32,14 +36,14 @@ const EquipmentTable = () => {
   const [selectedStatus, setSelectedStatus] = useState('ทั้งหมด')
   const [showWatch, setShowWatch] = useState(false) // open eye
   const [showEdit, setShowEdit] = useState(false)  // edit
-  
+  const [showDelete, setShowDelete] = useState(false)  // delete
   // แหล่งข้อมูลหลักของตารางและตัวเก็บข้อมูลแถวที่เลือกใช้งาน
   const [EquipmentList, setEquipmentList] = useState(data) 
   const [selectedItem, setSelectedItem] = useState<any | null>(null)
 
   // State สำหรับเก็บข้อมูลในฟอร์มแก้ไข
   const [editForm, setEditForm] = useState({
-    ID: 0,
+    ID: '',
     Equipmentname: '',
     Category: '',
     Status: '',
@@ -75,7 +79,7 @@ const EquipmentTable = () => {
       Equipmentname: item.Equipmentname,
       Category: item.Category,
       Status: item.Status,
-      Document: item.Document
+      Document: Number(item.Document)
     })
     setShowEdit(true)
   }
@@ -90,7 +94,7 @@ const EquipmentTable = () => {
           Equipmentname: editForm.Equipmentname,
           Category: editForm.Category,
           Status: editForm.Status,
-          Document: editForm.Document
+          Document: Number(editForm.Document)
           // ไม่ได้ใส่ฟิลด์ Date ตรงนี้ เพื่อล็อกไม่ให้เปลี่ยนแปลงค่าเวลาเดิม
         }
       }
@@ -101,10 +105,23 @@ const EquipmentTable = () => {
   }
 
   // 🔘 ปุ่มกดลบข้อมูลครุภัณฑ์ (Trash Icon)
-  const handleDelete = (idToDelete: string) => {
-    if (window.confirm(`คุณต้องการลบครุภัณฑ์รหัส ${idToDelete} ใช่หรือไม่?`)) {
-      const remainedItems = EquipmentList.filter((item) => item.ID !== idToDelete)
+  // const handleDelete = (idToDelete: string) => {
+  //   if (window.confirm(`คุณต้องการลบครุภัณฑ์รหัส ${idToDelete} ใช่หรือไม่?`)) {
+  //     const remainedItems = EquipmentList.filter((item) => item.ID !== idToDelete)
+  //     setEquipmentList(remainedItems)
+  //   }
+  // }
+
+  const handleDelete = (item: any) => {
+    setSelectedItem(item)
+    setShowDelete(true)
+  }
+
+  const handleConfirmDelete = () => {
+    if (selectedItem) {
+      const remainedItems = EquipmentList.filter((item) => item.ID !== selectedItem.ID)
       setEquipmentList(remainedItems)
+      setShowDelete(false) // ปิดหน้าต่างหลังลบสำเร็จ
     }
   }
 
@@ -129,13 +146,13 @@ const EquipmentTable = () => {
   }
 
   return (
-    <div className="w-full flex flex-col gap-6 max-w-4xl mx-auto">
+    <div className="w-full flex flex-col gap-6 mx-auto">
       {/*Search Bar*/}
       <div className="relative w-full">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 size-5" />
         <Input
           type="text"
-          placeholder="เริ่มพิมพ์คำค้นหาตรงนี้... (เช่น Equipment, Electronics)"
+          placeholder="ค้นหาครุภัณฑ์... "
           value={query}
           // อัปเดตสเตททันทีทุกครั้งที่คีย์บอร์ดถูกกด (Dynamic per letter)
           onChange={(e) => setQuery(e.target.value)}
@@ -151,70 +168,79 @@ const EquipmentTable = () => {
             <span>ตัวกรอง:</span>
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="bg-white border-zinc-200 shadow-sm text-zinc-700">
-                หมวดหมู่: <span className="text-indigo-600 font-bold ml-1">{selectedCategory === 'ทั้งหมด' ? 'ทั้งหมด' : selectedCategory}</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 bg-white">
-              <DropdownMenuLabel>เลือกหมวดหมู่</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={selectedCategory} onValueChange={setSelectedCategory}>
-                <DropdownMenuRadioItem value="ทั้งหมด">ทั้งหมด</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="อุปกรณ์IT">อุปกรณ์IT</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="เฟอร์นิเจอร์">เฟอร์นิเจอร์</DropdownMenuRadioItem>
-                
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <SelectTrigger className = "bg-white border-zinc-200 shadow-sm w-auto h-9 text-sm text-zinc-700 font-medium px-3 gap-2">
+              <SelectValue>
+              <div className="flex items-center">
+                  หมวดหมู่: 
+                <span className="text-indigo-600 font-bold ml-1">
+                {selectedCategory === 'ทั้งหมด' ? 'ทั้งหมด' : selectedCategory}
+                </span>
+              </div>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup className = "bg-white">
+                 <SelectLabel>หมวดหมู่</SelectLabel>
+                 <div className="h-px bg-zinc-100 my-1" />
+                <SelectItem value="ทั้งหมด">ทั้งหมด</SelectItem>
+                <SelectItem value="อุปกรณ์IT">อุปกรณ์IT</SelectItem>
+                <SelectItem value="เฟอร์นิเจอร์">เฟอร์นิเจอร์</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="bg-white border-zinc-200 shadow-sm text-zinc-700">
-                สถานะ: <span className="text-indigo-600 font-bold ml-1">{selectedStatus === 'ทั้งหมด' ? 'ทั้งหมด' : selectedStatus}</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 bg-white">
-              <DropdownMenuLabel>เลือกสถานะการใช้งาน</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={selectedStatus} onValueChange={setSelectedStatus}>
-                <DropdownMenuRadioItem value="ทั้งหมด">ทั้งหมด</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="อนุมัติ">อนุมัติ</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="รอดำเนินการ">รอดำเนินการ</DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select value={selectedStatus} onValueChange={setSelectedStatus}>
+            <SelectTrigger className = "bg-white border-zinc-200 shadow-sm w-auto h-9 text-sm text-zinc-700 font-medium px-3 gap-2">
+              <SelectValue>
+              <div className="flex items-center">
+                  สถานะ: 
+                <span className="text-indigo-600 font-bold ml-1">
+                {selectedStatus === 'ทั้งหมด' ? 'ทั้งหมด' : selectedStatus}
+                </span>
+              </div>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup className = "bg-white">
+                 <SelectLabel>สถานะ</SelectLabel>
+                 <div className="h-px bg-zinc-100 my-1" />
+                <SelectItem value="ทั้งหมด">ทั้งหมด</SelectItem>
+                <SelectItem value="อนุมัติ">อนุมัติ</SelectItem>
+                <SelectItem value="รอดำเนินการ">รอดำเนินการ</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
 
-        {(selectedCategory !== 'all' || selectedStatus !== 'all' || query !== '') && (
+        {(selectedCategory !== 'ทั้งหมด' || selectedStatus !== 'ทั้งหมด' || query !== '') && (
           <Button variant="ghost" size="sm" onClick={handleClearFilters} className="text-zinc-500 flex items-center gap-1.5 text-xs">
             <X className="size-3.5" /> ล้างตัวกรองทั้งหมด
           </Button>
         )}
       </div>
     {/*Table*/}
-    <div className="bg-white rounded-xl border border-gray-300 shadow-sm overflow-hidden">
+    <div className="bg-white rounded-xl border border-gray-300 shadow-sm overflow-hidden flex flex-col">
         <Table>
-          <TableHeader className="bg-gray-100 font-medium">
-            <TableRow>
-              <TableHead >รหัสครุภัรฑ์</TableHead>
-              <TableHead >ชื่อครุภัณฑ์</TableHead>
-              <TableHead >หมวดหมู่</TableHead>
-              <TableHead>วันที่ลงทะเบียน</TableHead>
-              <TableHead>สถานะ</TableHead>
-              <TableHead>เอกสาร</TableHead>
-              <TableHead className = "text-center">การจัดการ</TableHead>
+          <TableHeader className="bg-gray-50 font-medium ">
+            <TableRow className="text-gray-600 gap-6">
+              <TableHead  >รหัสครุภัณฑ์</TableHead>
+              <TableHead  >ชื่อครุภัณฑ์</TableHead>
+              <TableHead  >หมวดหมู่</TableHead>
+              <TableHead  >วันที่ลงทะเบียน</TableHead>
+              <TableHead  >สถานะ</TableHead>
+              <TableHead  >เอกสาร</TableHead>
+              <TableHead  >การจัดการ</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredResults.length > 0 ? (
               filteredResults.map((item) => (
                 <TableRow key={item.ID} className="hover:bg-zinc-50/80 transition-colors">
-                  <TableCell className="font-medium text-blue-600 text-center">
+                  <TableCell className="font-medium text-gray-500 ">
                     {item.ID}
                   </TableCell>
-                  <TableCell className="font-medium text-zinc-900">{item.Equipmentname}</TableCell>
+                  <TableCell className="font-medium text-zinc-900 ">{item.Equipmentname}</TableCell>
                   
                   {/* [POINT 1]: เรียกใช้งานฟังก์ชัน Badge ของหมวดหมู่ */}
                   <TableCell>{getCategoryBadge(item.Category)}</TableCell>
@@ -227,15 +253,15 @@ const EquipmentTable = () => {
                   <TableCell>{item.Document} ไฟล์</TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
-                      <Button onClick={() => handleWatchClick(item)}>
-                        <Eye className="size-4" />
+                      <Button className="text-blue-600 hover:text-black cursor-pointer" onClick={() => handleWatchClick(item)}>
+                        <Eye className="size-4 " />
                       </Button>
 
-                      <Button onClick={() => handleEditClick(item)}>
-                        <SquarePen className="size-4" />
+                      <Button className="text-gray-600 hover:text-yellow-500 cursor-pointer" onClick={() => handleEditClick(item)}>
+                        <SquarePen className="size-4 hover:text-gray-600" />
                       </Button>
 
-                      <Button variant="destructive" onClick={() => handleDelete(item.ID)}>
+                      <Button className="text-black hover:text-red-700 cursor-pointer"  variant="destructive" onClick={() => handleDelete(item)}>
                         <Trash2 className="size-4" />
                       </Button>
 
@@ -255,6 +281,33 @@ const EquipmentTable = () => {
               </TableRow>
             )}
           </TableBody>
+
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={7} className="text-center py-3 text-zinc-500 ">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span>แสดง 1-{filteredResults.length} จาก {filteredResults.length} รายการ</span>
+                  <div className="flex items-center gap-2">
+                  <Pagination>
+                    <PaginationContent>
+                      <PaginationItem>
+                        <PaginationPrevious className = "text-gray-700 border border-zinc-300 rounded-xl hover:bg-zinc-100/80 px-3 py-1.5" />
+                      </PaginationItem>
+                      <PaginationItem className = "border border-zinc-300 rounded-xl hover:bg-zinc-100/80 bg-blue-600 text-white">
+                        <PaginationLink href="#">1</PaginationLink>
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationNext className = "text-gray-700 border border-zinc-300 rounded-xl hover:bg-zinc-100/80 px-3 py-1.5"/>
+                      </PaginationItem>
+                    </PaginationContent>
+                  </Pagination>
+                  </div>
+                </div>
+                
+                
+              </TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </div>
 
@@ -370,6 +423,51 @@ const EquipmentTable = () => {
           </form>
         </DialogContent>
       </Dialog>
+
+      <Dialog open={showDelete} onOpenChange={setShowDelete}>
+        <DialogContent className="bg-white max-w-md rounded-xl p-6">
+          <DialogHeader className="flex flex-col items-center text-center sm:items-start sm:text-left gap-1">
+            <div className="p-2.5 bg-red-50 text-red-600 rounded-full w-fit mb-2">
+              <AlertTriangle className="size-6" />
+            </div>
+            <DialogTitle className="text-lg font-bold text-zinc-900">
+              คุณต้องการลบข้อมูลครุภัณฑ์ใช่หรือไม่?
+            </DialogTitle>
+            <DialogDescription className="text-zinc-500 text-sm">
+              การดำเนินการนี้ไม่สามารถย้อนคืนได้ ข้อมูลครุภัณฑ์และไฟล์เอกสารแนบทั้งหมดที่เกี่ยวข้องจะถูกลบออกจากระบบอย่างถาวร
+            </DialogDescription>
+          </DialogHeader>
+
+          {selectedItem && (
+            <div className="bg-zinc-50 border border-zinc-100 rounded-lg p-4 my-3 text-sm text-zinc-700 space-y-1.5">
+              <p><strong>รหัสครุภัณฑ์:</strong> <span className="text-zinc-900 font-medium">{selectedItem.ID}</span></p>
+              <p><strong>ชื่อครุภัณฑ์:</strong> <span className="text-zinc-900 font-medium">{selectedItem.Equipmentname}</span></p>
+              <p><strong>หมวดหมู่:</strong> <span className="text-zinc-900 font-medium">{selectedItem.Category}</span></p>
+            </div>
+          )}
+
+          <DialogFooter className="gap-2 pt-2 flex sm:flex-row flex-col">
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={() => setShowDelete(false)} 
+              className="w-full sm:w-auto border-zinc-200 hover:bg-zinc-50 text-zinc-700 rounded-lg"
+            >
+              ยกเลิก
+            </Button>
+            <Button 
+              type="button" 
+              onClick={handleConfirmDelete} 
+              className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg"
+            >
+              ยืนยันการลบข้อมูล
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+
+
 
 
 
