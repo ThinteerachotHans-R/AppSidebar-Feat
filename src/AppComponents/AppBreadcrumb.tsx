@@ -37,7 +37,7 @@ const AppBreadcrumb = () => {
         {/* หน้าแรกสุด (Home) ยืนพื้นไว้เสมอ */}
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to="/dashboard" className="hover:text-blue-600 transition-colors">หน้าหลัก</Link>
+            <Link to="/dashboard" className="hover:underline transition-colors">หน้าหลัก</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 
@@ -60,13 +60,13 @@ const AppBreadcrumb = () => {
               <BreadcrumbItem>
                 {isLast ? (
                   // ชิ้นสุดท้าย ปิดท้ายด้วยข้อความธรรมดา (กดคลิกไม่ได้)
-                  <BreadcrumbPage className="font-semibold text-zinc-950">
+                  <BreadcrumbPage className="font-semibold text-white">
                     {name}
                   </BreadcrumbPage>
                 ) : (
                   // ชิ้นระหว่างทาง ทำเป็น Link ให้กดคลิกย้อนกลับไปได้
                   <BreadcrumbLink asChild>
-                    <Link to={to} className="hover:text-blue-600 transition-colors">
+                    <Link to={to} className="hover:underline transition-colors">
                       {name}
                     </Link>
                   </BreadcrumbLink>
